@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Unit Converter</title>
+        <script src="../scripts/unit-converter.js"></script>
+        <link  rel="stylesheet" href="../css/unit-converter.css"></link >
+    </head>
+    <body onload="myFunction()">
+        <h2>Unit Converter</h2>
+        <div class="outerDiv">
+            <div class="list">
+                <div id="selectLength" class="unit" onclick="selectLength()">Length</div>
+                <div id="selectWeight"  class="unit"  onclick="selectWeight()">Weight</div>
+                <div id="selectTemp"  class="unit"  onclick="selectTemp()">Temperature</div>
+                <div id="selected"></div>
+            </div>
+            <hr>
+            <div class="innerContent">
+                <div class="length">
+                    <form>
+                        <p>Enter the Length to convert:</p>
+                        <input type="number" id="lengthvalue"/>
+                        <br>
+                        <p>Unit to Convert from:</p>
+                        <select name="fromLengthUnit" id="fromLengthUnit">
+                            <option value="m">Meter</option>
+                            <option value="cm">CentiMeter</option>
+                            <option value="mm">MilliMeter</option>
+                            <option value="km">KiloMeter</option>
+                            <option value="mi">Mile</option>
+                            <option value="in">Inch</option>
+                            <option value="ft">Feet</option>
+                          </select>
+                          <br>
+                          <p>Unit to Convert to:</p>
+                        <select name="toLengthUnit" id="toLengthUnit">
+                            <option value="m">Meter</option>
+                            <option value="cm">CentiMeter</option>
+                            <option value="mm">MilliMeter</option>
+                            <option value="km">KiloMeter</option>
+                            <option value="mi">Mile</option>
+                            <option value="in">Inch</option>
+                            <option value="ft">Feet</option>
+                        </select><br>
+                        
+                    </form>
+                </div>
+                <div class="weight">
+                    <form>
+                        <p>Enter the Weight to convert:</p>
+                        <input type="number" id="weightvalue"/>
+                        <br>
+                        <p>Unit to Convert from:</p>
+                        <select name="fromWeigthUnit" id="fromWeigthhUnit">
+                            <option value="g">Gram</option>
+                            <option value="mg">MilliGram</option>
+                            <option value="kg">KiloGram</option>
+                            <option value="tn">Ton</option>
+                            <option value="lbs">Pounds</option>
+                            <option value="ou">Ounce</option>
+                          </select>
+                          <br>
+                        <p>Unit to Convert to:</p>
+                        <select name="toWeigthUnit" id="toWeigthUnit">
+                            <option value="g">Gram</option>
+                            <option value="mg">MilliGram</option>
+                            <option value="kg">KiloGram</option>
+                            <option value="tn">Ton</option>
+                            <option value="lbs">Pounds</option>
+                            <option value="ou">Ounce</option>
+                        </select><br>
+                    </form>
+                </div>
+                <div class="temperature">
+                    <form>
+                        <p>Enter the Temperature to convert:</p>
+                        <input type="number" id="tempvalue"/>
+                        <br>
+                        <p>Unit to Convert to:</p>
+                        <select name="fromTempUnit" id="fromTempUnit">
+                            <option value="c">Deg. Celsius</option>
+                            <option value="f">Fahrenheit </option>
+                            <option value="k">Kelvin </option>
+                          </select>
+                          <br>
+                          <p>Unit to Convert to:</p>
+                        <select name="toTempUnit" id="toTempUnit">
+                            <option value="c">Deg. Celsius</option>
+                            <option value="f">Fahrenheit </option>
+                            <option value="k">Kelvin </option>
+                        </select><br>
+                    </form>
+                </div><br>
+                <button id="convert" onclick="convert(document.getElementById('selected').innerHTML)">Convert</button>
+                <div class="result">
+                    <p>Result of Your Calculation</p>
+                    <p id="output"></p>
+                    <button id="reset">Reset</button>
+                </div>
+
+            </div>
+        </div>
+    </body>
+</html>
