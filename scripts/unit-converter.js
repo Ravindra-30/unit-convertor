@@ -4,43 +4,58 @@ function myFunction(){
     document.getElementsByClassName("temperature")[0].style.display="none";
 }
 
+function select(type, currentType){
+    var set = {
+        "length": {
+            divs: "selectLength"},
+        "weight": {
+            divs: "selectWeight"
+        },
+        "temperature": {
+            divs: "selectTemp"
+        }
+    }
+    document.getElementById(set[currentType].divs).style.color = "blue";
+    document.getElementById(set[currentType].divs).style["text-decoration"] = "underline";
+    document.getElementById(set[currentType].divs).style["text-underline-position"] = "under";
+    document.getElementsByClassName(currentType)[0].style.display="inline";
+    if(type && type != '' && type != currentType){
+        document.getElementById(set[type].divs).style.color = "black";
+        document.getElementById(set[type].divs).style["text-decoration"] = "none";
+        document.getElementById(set[type].divs).style["text-underline-position"] = "under";
+        document.getElementsByClassName(type)[0].style.display="none";
+    }
+    document.getElementsByClassName("result")[0].style.display="none";
+    document.getElementById("selected").innerHTML=currentType;
+    document.getElementById("convert").style.display="inline";
+
+}
+
 function selectLength(){
+   
     var type = document.getElementById("selected").innerHTML;
-    if(type && type != '' && type != 'length')
-    document.getElementsByClassName(type)[0].style.display="none";
+    select(type, "length");
     document.getElementById("lengthvalue").value = '';
     document.getElementById("fromLengthUnit").value = 'm';
     document.getElementById("toLengthUnit").value = 'm';
-    document.getElementsByClassName("length")[0].style.display="inline";
-    document.getElementsByClassName("result")[0].style.display="none";
-    document.getElementById("selected").innerHTML="length";
-    document.getElementById("convert").style.display="inline";
+
+
 }
 
 function selectWeight(){
-    document.getElementsByClassName("weight")[0].style.display="inline";
     var type = document.getElementById("selected").innerHTML;
-    if(type && type != '' && type != 'weight')
-    document.getElementsByClassName(type)[0].style.display="none";
+    select(type, "weight");
     document.getElementById("weightvalue").value = '';
     document.getElementById("fromWeigthhUnit").value = 'g';
     document.getElementById("toWeigthUnit").value = 'g';
-    document.getElementsByClassName("result")[0].style.display="none";
-    document.getElementById("selected").innerHTML="weight";
-    document.getElementById("convert").style.display="inline";
 }
 
 function selectTemp(){
     var type = document.getElementById("selected").innerHTML;
-    if(type && type != '' && type != 'temperature')
-    document.getElementsByClassName(type)[0].style.display="none";
+    select(type, "temperature");
     document.getElementById("tempvalue").value = '';
     document.getElementById("fromTempUnit").value = 'c';
     document.getElementById("toTempUnit").value = 'c';
-    document.getElementsByClassName("temperature")[0].style.display="inline";
-    document.getElementsByClassName("result")[0].style.display="none";
-    document.getElementById("selected").innerHTML="temperature";
-    document.getElementById("convert").style.display="inline";
 }
 
 function convert(type){
